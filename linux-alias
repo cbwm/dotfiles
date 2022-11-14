@@ -1,0 +1,8 @@
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias celar="clear && echo \"you meant \"clear\" didn't you\""
+alias lcear="clear && echo \"you meant \"clear\" didn't you\""
+
+alias icat="kitty +kitten icat"

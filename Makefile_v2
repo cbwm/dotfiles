@@ -1,0 +1,54 @@
+#https://github.com/masasam/dotfiles/blob/master/Makefile
+SHELL := /usr/bin/fish
+DOTFILES_DIR := $(dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+ARCH_PKGS	:= kitty neovim
+
+MACOS_PKS	:= kitty neovim
+
+PACMAN		:= sudo pacman -S
+BREW		:= brew install
+
+
+
+.PHONEY: linux alias nvim alias-linux kitty-linux fish-linux alias-macos kitty-macos fish-macos
+
+install-arch:
+
+
+deploy:
+
+# linux dots
+linux: alias-linux kitty-linux fish-linux nvim
+
+alias-linux: alias
+
+kitty-linux:
+	echo "working on kitty (linux)"
+	# ln -s $(DOTFILES_DIR)/config/kitty-linux ~/.config/kitty
+
+fish-linux:
+	echo "working on fish (linux)"
+	# ln -s $(DOTFILES_DIR)/config/fish-linux ~/.config/fish
+	# curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+	# fisher update
+
+# macos-only dots
+macos: alias-macos kitty-macos fish-macos nvim
+
+alias-macos: alias
+
+kitty-macos:
+	# ln -s $(DOTFILES_DIR)/config/kitty-macos ~/.config/kitty
+
+fish-macos:
+	# install fisher
+	# ln -s $(DOTFILES_DIR)/config/fish-macos ~/.config/fish
+
+# shared dots
+nvim:
+	# ln -s $(DOTFILES_DIR)/config/nvim ~/.config/nvim
+	# nvim +PackerInstall
+	# nvim +PackerInstall
+
+alias:
